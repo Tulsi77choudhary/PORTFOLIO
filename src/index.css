@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f2f2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .clip-path-custom {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 95%, 0 100%);
+  }
+
+  .clip-path-custom-2 {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 25% 95%, 0 100%);
+  }
+
+  .clip-path-custom-3 {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 96%, 0 100%);
+  }
+}
+
+
