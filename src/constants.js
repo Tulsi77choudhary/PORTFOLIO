@@ -18,6 +18,7 @@ import calculatorLogo from "./assets/project_logo/calculator.jpg";
 import snackLogo from "./assets/project_logo/snack.jpg";
 import hospitalLogo from "./assets/project_logo/hospital.png";
 import ChatAppLogo from "./assets/project_logo/chat.webp";
+import ecommerceLogo from "./assets/project_logo/ecommerce.jpg";
 
 {/* Education Images */ }
 import PIMRLogo from "./assets/education_logo/PIMR.jpg";
@@ -67,13 +68,13 @@ export const SkillsInfo = [
 export const projects = [
   {
     id: 0,
-    title: "Calculator App",
+    title: "E-Commerce Website",
     description:
-      "A sleek and interactive Calculator application built with HTML, CSS, and JavaScript. This user-friendly tool allows users to perform basic arithmetic operations with ease, including addition, subtraction, multiplication, and division. The responsive design ensures smooth usability across devices, while the intuitive interface makes calculations fast, accurate, and visually appealing. Perfect for learning, testing, or everyday calculations.",
-    image: calculatorLogo,
-    tags: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/Tulsi77choudhary/Calculator",
-    webapp: "https://your-username.github.io/Calculator",
+      "A full-stack E-Commerce web application where users can browse products, add items to the cart, and securely place orders. Built using React, Tailwind CSS, Spring Boot, and MySQL, featuring product filtering, authentication, and responsive design.",
+    image: ecommerceLogo,
+    tags: ["Spring Boot", "React", "Tailwind CSS", "MySQL"],
+    github: "https://github.com/Tulsi77choudhary/ecommerce",
+    webapp: "https://tulsi-ecommerce.vercel.app/",
   },
 
   {
@@ -117,6 +118,16 @@ export const projects = [
     tags: [ "Java", "swing", "awt",],
     github: "https://github.com/Tulsi77choudhary/",
     webapp: "https://tulsi77choudhary.github.io/",
+  },
+  {
+    id: 6,
+    title: "Calculator App",
+    description:
+      "A sleek and interactive Calculator application built with HTML, CSS, and JavaScript. This user-friendly tool allows users to perform basic arithmetic operations with ease, including addition, subtraction, multiplication, and division. The responsive design ensures smooth usability across devices, while the intuitive interface makes calculations fast, accurate, and visually appealing. Perfect for learning, testing, or everyday calculations.",
+    image: calculatorLogo,
+    tags: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Tulsi77choudhary/Calculator",
+    webapp: "https://your-username.github.io/Calculator",
   },
 
 ];
