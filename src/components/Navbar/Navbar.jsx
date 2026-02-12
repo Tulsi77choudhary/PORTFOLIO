@@ -1,79 +1,140 @@
-import React, { useState } from "react";
-import { FiMenu } from "react-icons/fi";
-import { MdClose } from "react-icons/md";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+// Naye icons import kiye
+import { IoReorderThreeOutline, IoCloseOutline } from "react-icons/io5";
+
+const navItems = [
+  { name: 'Home', to: 'home' },
+  { name: 'About', to: 'about' },
+  { name: 'Courses', to: 'courses' },
+  { name: 'Skills', to: 'skills' },
+  { name: 'Projects', to: 'projects' },
+  { name: 'Contact', to: 'contact' },
+];
+
+const socialLinks = [
+  { icon: FaGithub, href: 'https://github.com/nikhiltelase' },
+  { icon: FaLinkedin, href: 'https://linkedin.com/in/nikhiltelase' },
+  { icon: FaInstagram, href: 'https://instagram.com/nikhiltelase17' },
+];
 
 function Navbar() {
-  const [menu, setMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu ki state
 
-  const navItems = [
-    { id: 1, text: "About" },
-    { id: 2, text: "Skills" },
-    { id: 3, text: "Projects" },
-    { id: 4, text: "Education" },
-    { id: 5, text: "Contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <>
-      {/* Navbar Container */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md shadow-lg border-b border-gray-800">
-        <div className="max-w-screen-2xl mx-auto px-5 md:px-16 flex justify-between items-center h-16 text-white">
-          
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
+        scrolled ? 'bg-dark-200/95 shadow-lg backdrop-blur-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <h1 className="font-semibold text-2xl tracking-wide cursor-pointer">
-              <span className="text-orange-400 font-bold">TULSI</span>{" "}
-              <span className="text-white">CHOUDHARY</span>
-            </h1>
+          <motion.div whileHover={{ scale: 1.1 }} className="text-xl font-bold text-primary text-blue-500 cursor-pointer">
+            TC
+          </motion.div>
+
+          {/* Desktop Nav Items (Badi screen par dikhega) */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-70}
+                className="text-gray-300 hover:text-primary cursor-pointer transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-8 font-medium">
-            {navItems.map(({ id, text }) => (
-              <li
-                key={id}
-                className="relative group transition-transform duration-300 hover:scale-110"
-              >
-                <a
-                  href={`#${text.toLowerCase()}`}
-                  className="inline-block text-gray-100 transition-all duration-300 group-hover:text-orange-400"
-                >
-                  {text}
-                </a>
-                <span className="absolute left-0 bottom-[-3px] w-0 h-[2px] bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center space-x-4">
+            {/* Social Links (Desktop par dikhenge) */}
+            <div className="hidden md:flex items-center space-x-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, color: '#0EA5E9' }}
+                    className="text-gray-300 hover:text-primary text-xl"
+                  >
+                    <Icon />
+                  </motion.a>
+                );
+              })}
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div
-            onClick={() => setMenu(!menu)}
-            className="md:hidden cursor-pointer text-gray-100 hover:text-orange-400 transition"
-          >
-            {menu ? <MdClose size={26} /> : <FiMenu size={26} />}
+            {/* --- MOBILE HAMBURGER BUTTON --- */}
+            <button
+              className="md:hidden text-4xl text-primary focus:outline-none z-[110]"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <IoCloseOutline /> : <IoReorderThreeOutline />}
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Dropdown */}
-        {menu && (
-          <div className="md:hidden bg-gradient-to-b from-orange-700 via-red-700 to-black shadow-inner">
-            <ul className="flex flex-col items-center justify-center py-10 space-y-6 text-lg font-medium text-white">
-              {navItems.map(({ id, text }) => (
-                <li key={id}>
-                  <a
-                    href={`#${text.toLowerCase()}`}
-                    onClick={() => setMenu(false)}
-                    className="inline-block hover:text-orange-400 hover:scale-110 transform transition-all duration-300"
-                  >
-                    {text}
-                  </a>
-                </li>
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-dark-200/98 backdrop-blur-xl border-b border-white/10 md:hidden"
+          >
+            <div className="flex flex-col items-center py-8 space-y-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  onClick={() => setIsOpen(false)} // Click karte hi menu band
+                  className="text-gray-300 hover:text-primary text-xl font-medium"
+                >
+                  {item.name}
+                </Link>
               ))}
-            </ul>
-          </div>
+              
+              {/* Social Links in Mobile Menu */}
+              <div className="flex space-x-8 pt-4">
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <a key={index} href={social.href} target="_blank" className="text-gray-300 text-2xl">
+                      <Icon />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
         )}
-      </nav>
-    </>
+      </AnimatePresence>
+    </motion.nav>
   );
 }
 

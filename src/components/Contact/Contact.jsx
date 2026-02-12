@@ -1,123 +1,168 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = () => {
-  const form = useRef();
-  const [isSent, setIsSent] = useState(false);
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_xu4706n",
-        "template_b1i18cx",
-        form.current,
-        "xxNaY_M3UkYIPnb__"
-      )
-      .then(
-        () => {
-          setIsSent(true);
-          form.current.reset();
-          toast.success("Message sent successfully! ✅", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "dark",
-          });
-        },
-        (error) => {
-          console.error("Error sending message:", error);
-          toast.error("Failed to send message. Please try again.", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "dark",
-          });
-        }
+    setLoading(true);
+    setError(false); // Reset error state before trying again
+
+    try {
+      await emailjs.sendForm(
+        'service_05yuc79',
+        'template_w9klutf',
+        formRef.current,
+        'W0xvhhaN2bwsc4ILf'
       );
+      setSuccess(true);
+      formRef.current.reset();
+    } catch (error) {
+      setError(true);
+      console.error('Error sending email:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section
-      id="contact"
-      className="relative min-h-screen flex flex-col items-center justify-center px-[8vw] py-20 text-white bg-gradient-to-br from-black via-gray-900 to-gray-950 overflow-hidden"
-    >
-      <ToastContainer />
-
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-600/20 via-transparent to-orange-400/10 blur-3xl -z-10"></div>
-
-      {/* Heading */}
-      <div className="text-center mb-12 relative z-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-orange-400 font-serif tracking-wide drop-shadow-[0_0_12px_rgba(255,165,0,0.4)]">
-          CONTACT
-        </h2>
-        <div className="w-40 h-1 bg-orange-500 mx-auto mt-3 rounded-full shadow-[0_0_10px_rgba(255,165,0,0.6)]"></div>
-        <p className="text-gray-300 mt-4 text-sm sm:text-base italic max-w-2xl mx-auto">
-          I’d love to hear from you — reach out for collaborations, ideas, or
-          just to say hi!
-        </p>
-      </div>
-
-      {/* Contact Form Card */}
-      <div className="relative z-10 w-full max-w-lg bg-gray-900/60 backdrop-blur-xl border border-orange-500/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,165,0,0.15)] transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,165,0,0.35)]">
-        <h3 className="text-2xl font-semibold text-center text-orange-400 mb-6">
-          Connect With Me 🚀
-        </h3>
-
-        <form
-          ref={form}
-          onSubmit={sendEmail}
-          className="flex flex-col space-y-5"
+    <section id="contact" className="py-20 text-gray-300 backdrop-blur-0">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-center mb-16"
         >
-          <input
-            type="email"
-            name="user_email"
-            placeholder="Your Email"
-            required
-            className="w-full p-3 rounded-md bg-gray-800/70 text-white border border-gray-700 focus:outline-none focus:border-orange-500 transition-all duration-300"
-          />
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Your Name"
-            required
-            className="w-full p-3 rounded-md bg-gray-800/70 text-white border border-gray-700 focus:outline-none focus:border-orange-500 transition-all duration-300"
-          />
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            required
-            className="w-full p-3 rounded-md bg-gray-800/70 text-white border border-gray-700 focus:outline-none focus:border-orange-500 transition-all duration-300"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows="4"
-            required
-            minLength={10}
-            className="w-full p-3 rounded-md bg-gray-800/70 text-white border border-gray-700 focus:outline-none focus:border-orange-500 transition-all duration-300"
-          />
+          <h2 className="text-4xl font-extrabold text-white mb-4">Get in Touch</h2>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+            Have a project in mind or want to collaborate? Feel free to reach out!
+          </p>
+        </motion.div>
 
-          <button
-            type="submit"
-            disabled={isSent}
-            className={`w-full py-3 font-semibold rounded-md transition-all duration-300 ${
-              isSent
-                ? "bg-gray-600 cursor-not-allowed text-white"
-                : "bg-gradient-to-r from-orange-500 to-red-500 hover:opacity-90 shadow-[0_0_15px_rgba(255,165,0,0.4)]"
-            }`}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            {isSent ? "Sent ✅" : "Send Message"}
-          </button>
-        </form>
-      </div>
+            <div className="space-y-8 bg-gray-800/50 p-6 rounded-lg shadow-lg backdrop-blur-md">
+              <ContactDetail
+                icon={<FaEnvelope />}
+                title="Email"
+                text="tulsichoudhary421@gmail.com"
+              />
+              <ContactDetail
+                icon={<FaPhone />}
+                title="Phone"
+                text="+91 7049298434"
+              />
+              <ContactDetail
+                icon={<FaMapMarkerAlt />}
+                title="Location"
+                text="Bhopal, India"
+              />
+            </div>
+          </motion.div>
 
-      {/* Divider */}
-      <div className="w-full h-[1px] bg-gray-800 mt-12"></div>
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-gray-800/50 p-6 rounded-lg shadow-lg backdrop-blur-md"
+            >
+              <InputField
+                id="name"
+                label="Your Name"
+                type="text"
+                name="name"
+                required
+              />
+              <InputField
+                id="email"
+                label="Your Email"
+                type="email"
+                name="email"
+                required
+              />
+              <div>
+                <label htmlFor="message" className="block text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="4"
+                  className="w-full bg-gray-700 text-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-lg transition-colors disabled:opacity-50"
+              >
+                {loading ? (
+                  <div className="animate-spin w-6 h-6 border-4 border-t-4 border-blue-500 rounded-full mx-auto"></div>
+                ) : (
+                  'Send Message'
+                )}
+              </button>
+              {success && (
+                <p className="text-green-400 text-center mt-2">
+                  Message sent successfully!
+                </p>
+              )}
+              {error && (
+                <p className="text-red-400 text-center mt-2">
+                  Something went wrong, please try again.
+                </p>
+              )}
+            </form>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
+
+const ContactDetail = ({ icon, title, text }) => (
+  <div className="flex items-center gap-4">
+    <div className="w-12 h-12 bg-blue-600/50 rounded-full flex items-center justify-center text-white text-xl">
+      {icon}
+    </div>
+    <div>
+      <h3 className="text-white font-semibold">{title}</h3>
+      <p className="text-gray-400">{text}</p>
+    </div>
+  </div>
+);
+
+const InputField = ({ id, label, type, name, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-gray-300 mb-2">
+      {label}
+    </label>
+    <input
+      type={type}
+      id={id}
+      name={name}
+      required={required}
+      className="w-full bg-gray-700 text-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+);
 
 export default Contact;

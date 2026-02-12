@@ -1,95 +1,63 @@
-import React from "react";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
-  
-  const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <footer className="relative text-white py-10 px-[10vw] md:px-[12vw] lg:px-[20vw] bg-gradient-to-b from-black via-gray-900 to-gray-950 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-600/10 via-transparent to-orange-400/10 blur-3xl -z-10"></div>
+    <footer className="bg-gray-800/30 py-12 backdrop-blur-0">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          {/* Brand Section */}
+          <div className="text-center md:text-left mb-8 md:mb-0">
+            <h3 className="text-3xl font-extrabold text-white mb-2 tracking-wide">
+              TULSI CHOUDHARY<span className="text-accent">..</span>
+            </h3>
+            <p className="text-gray-300">
+              Crafting cutting-edge solutions in Full Stack Web Development.
+            </p>
+          </div>
 
-      <div className="container mx-auto text-center relative z-10">
-        {/* Name / Logo */}
-        <h2 className="text-2xl font-bold text-orange-400 font-serif tracking-wide drop-shadow-[0_0_10px_rgba(255,165,0,0.4)]">
-          Tulsi Choudhary
-        </h2>
-
-        {/* Divider */}
-        <div className="w-28 h-1 bg-orange-500 mx-auto mt-3 rounded-full shadow-[0_0_12px_rgba(255,165,0,0.6)]"></div>
-
-        {/* Navigation Links */}
-        <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="text-sm sm:text-base text-gray-300 hover:text-orange-400 transition-all duration-300 hover:scale-105"
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
-
-        {/* Social Icons */}
-        <div className="flex justify-center gap-5 mt-6">
-          {[
-            { icon: <FaFacebook />, link: "https://www.facebook.com/" },
-            {
-              icon: <FaTwitter />,
-              link: "https://twitter.com/CodingMaster6?s=09",
-            },
-            {
-              icon: <FaLinkedin />,
-              link: "https://www.linkedin.com/in/tulsi-choudhary-994058263/",
-            },
-            {
-              icon: <FaInstagram />,
-              link: "https://www.instagram.com/coding_.master/",
-            },
-            {
-              icon: <FaYoutube />,
-              link: "https://www.youtube.com/@tulsichoudhary3974",
-            },
-          ].map((item, index) => (
+          {/* Social Media Links */}
+          <div className="flex gap-8">
             <a
-              key={index}
-              href={item.link}
+              href="https://github.com/Tulsi77choudhary"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl text-gray-400 hover:text-orange-400 transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_10px_rgba(255,165,0,0.8)]"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300"
+              aria-label="GitHub"
             >
-              {item.icon}
+              <FaGithub size={28} />
             </a>
-          ))}
+            <a
+              href="https://linkedin.com/in/tulsi-choudhary-994058263/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={28} />
+            </a>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all duration-300"
+              aria-label="Twitter"
+            >
+              <FaTwitter size={28} />
+            </a>
+          </div>
         </div>
 
-        {/* Bottom Line */}
-        <div className="w-full h-[1px] bg-gray-700 mt-8 mb-4"></div>
+        {/* Divider */}
+        <div className="mt-12">
+          <div className="w-full h-px bg-gradient-to-r from-purple-700 via-gray-600 to-purple-700"></div>
+        </div>
 
-        {/* Copyright */}
-        <p className="text-sm text-gray-400 italic">
-          © 2025 <span className="text-orange-400">Tulsi Choudhary</span>. All
-          rights reserved.
-        </p>
+        {/* Footer Bottom */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-400 text-sm">
+            © {new Date().getFullYear()} <span className="text-white font-medium">Tulsi choudhary</span>. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
