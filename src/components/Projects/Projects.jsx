@@ -6,9 +6,9 @@ const projects = [
     title: "E-commerce Web Application",
     description: "A full-stack e-commerce platform built with React, SpringBoot and MySQL featuring user authentication, product management, cart functionality, and secure payment integration.",
     tags: ["React", "SpringBoot", "MySQL"],
-    github: "https://github.com/nikhiltelase/my-shopee",
-    demo: "https://my-shopee-beryl.vercel.app/",
-    videoEmbed: "https://www.youtube.com/embed/rOj_NqS4p2I"
+    github: "https://github.com/Tulsi77choudhary/e-commerce-react-frontend-",
+    github2: "https://github.com/Tulsi77choudhary/e-commerce-springBoot-backend",
+    videoEmbed: "https://www.youtube.com/embed/-RdmuVzRsas"
   },
   {
     title: "Weather Forecasting Application",
