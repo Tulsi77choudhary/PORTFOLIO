@@ -36,7 +36,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-lg sm:text-2xl text-gray-400 sm:mb-8">
-            Java & SpringBoot Developer, passionate about building innovative
+            Java & SpringBoot, React Developer, passionate about building innovative
             <br />
             solutions in Data Structures & Algorithms, and Web Development.
           </p>

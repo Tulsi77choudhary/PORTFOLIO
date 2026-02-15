@@ -37,13 +37,13 @@ const timelineElements = [
     date: "2023",
     icon: <FaServer />,
   },
-  {
-    title: "InternShip & Training at Integration IT Services Pvt. Ltd.",
-    location: "Bhopal, Madhya Pradesh",
-    description: "Completed 3 months of training and internship, gaining hands-on experience in Java, SpringBoot, and real-world software development practices.",
-    date: "Oct 2022 to  Dec 2022",
-    icon: <FaLaptopCode />,
-  },
+  // {
+  //   title: "InternShip & Training at Integration IT Services Pvt. Ltd.",
+  //   location: "Bhopal, Madhya Pradesh",
+  //   description: "Completed 3 months of training and internship, gaining hands-on experience in Java, SpringBoot, and real-world software development practices.",
+  //   date: "Oct 2022 to  Dec 2022",
+  //   icon: <FaLaptopCode />,
+  // },
 ];
 
 const Timeline = () => {

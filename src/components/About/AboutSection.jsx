@@ -31,7 +31,7 @@ function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
           <div className="w-16 md:w-20 h-1 bg-primary mx-auto mb-6 md:mb-8"></div>
           <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            I'm a passionate software developer with expertise in Java,SpringBoot & React. 
+            I'm a passionate software developer with expertise in Java, SpringBoot & React. 
             I love building projects in automation, aiming to create 
             user-friendly and innovative solutions.
           </p>
