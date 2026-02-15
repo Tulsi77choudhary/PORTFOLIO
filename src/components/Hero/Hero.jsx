@@ -51,14 +51,14 @@ const Hero = () => {
         >
           <a
             href="#projects"
-            className="border text-primary border-accent text-accent hover:bg-accent/10 p-2 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
+            className="border text-primary border-white text-white hover:bg-accent/10 p-2 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
           >
             View Projects
           </a>
           <a
-            href="" // Update to a relative path
+            href="\assets\TULSI CHOUDHARY Java Developer (2).pdf" // Update to a relative path
             download
-            className="border text-primary border-accent text-accent hover:bg-accent/10 p-2 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
+            className="border text-primary border-white text-white hover:bg-accent/10 p-2 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
           >
             Download Resume
           </a>

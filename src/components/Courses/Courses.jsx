@@ -8,7 +8,7 @@ const courses = [
     instructor: "Tim Buchalka",
     description: "Comprehensive Java programming course covering fundamentals to advanced concepts, including web development, data science, and automation.",
     completed: true,
-    skills: ["Java", "Core Java", "Multithreading", "API Development", "Spring Boot"]
+    skills: ["Java", "Core Java","Advance Java", "Multithreading", "API Development", "Java 8","Networking", "JDBC"]
   },
   {
     title: "Spring Boot Bootcamp",
@@ -16,7 +16,7 @@ const courses = [
     instructor: "Vipul",
     description: "Comprehensive Spring Boot course covering fundamentals to advanced topics, including building REST APIs, web applications, and integration with databases.",
     completed: true,
-    skills: ["Java", "Spring Boot", "REST API", "JPA/Hibernate", "MySQL"]
+    skills: ["Java", "Spring Boot", "REST API", "JPA/Hibernate", "MySQL","Junit"]
   },
   {
     title: "Frontend Development with React",

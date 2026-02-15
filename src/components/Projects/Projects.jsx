@@ -7,23 +7,29 @@ const projects = [
     description: "A full-stack e-commerce platform built with React, SpringBoot and MySQL featuring user authentication, product management, cart functionality, and secure payment integration.",
     tags: ["React", "SpringBoot", "MySQL"],
     github: "https://github.com/Tulsi77choudhary/e-commerce-react-frontend-",
-    github2: "https://github.com/Tulsi77choudhary/e-commerce-springBoot-backend",
-    videoEmbed: "https://www.youtube.com/embed/-RdmuVzRsas"
+    videoEmbed: "https://www.youtube.com/embed/QJePtmWBgIk"
   },
   {
-    title: "Weather Forecasting Application",
+    title: "My PortFolio",
+    description: "",
+    tags: ["React", "EmailJS", "VS Code"],
+    github: "https://github.com/Tulsi77choudhary/PORTFOLIO",
+    videoEmbed: "https://www.youtube.com/embed/t9t46yGoDww"
+  },
+  {
+    title: "Project Management System",
     description: "A responsive web application that provides real-time weather forecasts using the OpenWeatherMap API, built with Servlet and JSP.",
-    tags: ["Java", "Servlet", "JSP", "API", "Web Development"],
-    github: "https://github.com/nikhiltelase/ai-assistant",
-    videoEmbed: "https://www.youtube.com/embed/fxh-XnSUl1Y?si=AtukFbyqzvN5zkDe"
+    tags: [],
+    github: "https://github.com/Tulsi77choudhary/ProjectManagement-Backend",
+    videoEmbed: "https://www.youtube.com/embed/iJ11wZFMgTc"
   },
   {
     title: "Snake Game",
     description: "Classic snake game with modern features including leaderboard, different difficulty levels, and responsive controls.",
-    tags: ["JavaScript", "HTML5", "CSS3"],
+    tags: ["JavaScript", "HTML5", "CSS3","Tailwind CSS"],
     github: "https://github.com/Tulsi77choudhary/SNACK-GAME",
     demo: "https://snake-game-heng.onrender.com/",
-    videoEmbed: "https://www.youtube.com/embed/KmKIyWcMpeo"
+    videoEmbed: "https://www.youtube.com/embed/tEFQ_vYp73s"
   },
 ];
 

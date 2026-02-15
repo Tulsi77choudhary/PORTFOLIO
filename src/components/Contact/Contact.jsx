@@ -16,10 +16,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_05yuc79',
-        'template_w9klutf',
+        'service_xu4706n',
+        'template_b1i18cx',
         formRef.current,
-        'W0xvhhaN2bwsc4ILf'
+        'xxNaY_M3UkYIPnb__'
       );
       setSuccess(true);
       formRef.current.reset();
@@ -57,7 +57,7 @@ const Contact = () => {
               <ContactDetail
                 icon={<FaEnvelope />}
                 title="Email"
-                text="tulsichoudhary421@gmail.com"
+                text="choudharytulsi421@gmail.com"
               />
               <ContactDetail
                 icon={<FaPhone />}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
-// Naye icons import kiye
 import { IoReorderThreeOutline, IoCloseOutline } from "react-icons/io5";
 
 const navItems = [
@@ -22,32 +21,42 @@ const socialLinks = [
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu ki state
+  const [isOpen, setIsOpen] = useState(false);
 
+  // Scroll listener for sticky effect
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+  }, [isOpen]);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-dark-200/95 shadow-lg backdrop-blur-md' : 'bg-transparent'
+        scrolled || isOpen ? 'bg-[#0f172a]/95 shadow-xl backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.1 }} className="text-xl font-bold text-primary text-blue-500 cursor-pointer">
-            TC
-          </motion.div>
+          <Link to="home" smooth={true} className="cursor-pointer">
+            <motion.div 
+              whileHover={{ scale: 1.05 }} 
+              className="text-2xl font-extrabold tracking-tighter text-blue-500"
+            >
+              TC<span className="text-white">.</span>
+            </motion.div>
+          </Link>
 
-          {/* Desktop Nav Items (Badi screen par dikhega) */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -55,18 +64,19 @@ function Navbar() {
                 to={item.to}
                 spy={true}
                 smooth={true}
+                activeClass="text-blue-500"
                 duration={500}
                 offset={-70}
-                className="text-gray-300 hover:text-primary cursor-pointer transition-colors"
+                className="text-gray-300 hover:text-blue-400 font-medium cursor-pointer transition-colors"
               >
                 {item.name}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
-            {/* Social Links (Desktop par dikhenge) */}
-            <div className="hidden md:flex items-center space-x-4">
+          <div className="flex items-center space-x-5">
+            {/* Desktop Socials */}
+            <div className="hidden md:flex items-center space-x-5">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -75,8 +85,8 @@ function Navbar() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, color: '#0EA5E9' }}
-                    className="text-gray-300 hover:text-primary text-xl"
+                    whileHover={{ y: -3, color: '#3b82f6' }}
+                    className="text-gray-400 text-xl transition-colors"
                   >
                     <Icon />
                   </motion.a>
@@ -84,9 +94,10 @@ function Navbar() {
               })}
             </div>
 
-            {/* --- MOBILE HAMBURGER BUTTON --- */}
+            {/* Mobile Toggle Button */}
             <button
-              className="md:hidden text-4xl text-primary focus:outline-none z-[110]"
+              aria-label="Toggle Menu"
+              className="md:hidden text-4xl text-blue-500 focus:outline-none z-[110]"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <IoCloseOutline /> : <IoReorderThreeOutline />}
@@ -99,32 +110,38 @@ function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-dark-200/98 backdrop-blur-xl border-b border-white/10 md:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute top-0 left-0 w-full bg-[#0f172a] flex flex-col items-center justify-center md:hidden overflow-hidden"
           >
-            <div className="flex flex-col items-center py-8 space-y-6">
-              {navItems.map((item) => (
-                <Link
+            <div className="flex flex-col items-center space-y-8">
+              {navItems.map((item, i) => (
+                <motion.div
                   key={item.to}
-                  to={item.to}
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  onClick={() => setIsOpen(false)} // Click karte hi menu band
-                  className="text-gray-300 hover:text-primary text-xl font-medium"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    to={item.to}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-100 hover:text-blue-400 text-3xl font-semibold transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
               
-              {/* Social Links in Mobile Menu */}
-              <div className="flex space-x-8 pt-4">
+              {/* Mobile Socials */}
+              <div className="flex space-x-10 pt-10">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
                   return (
-                    <a key={index} href={social.href} target="_blank" className="text-gray-300 text-2xl">
+                    <a key={index} href={social.href} target="_blank" rel="noreferrer" className="text-gray-400 text-3xl">
                       <Icon />
                     </a>
                   );

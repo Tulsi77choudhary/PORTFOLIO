@@ -17,7 +17,7 @@ const timelineElements = [
     icon: <FaGraduationCap />,
   },
   {
-    title: "12th Grade Education",
+    title: "12th, 10th, Education",
     location: "Madhya Pradesh State Board",
     description: "Completed higher Secondary education with focus on science and mathematics",
     date: "2021",
