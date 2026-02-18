@@ -56,7 +56,7 @@ const Hero = () => {
             View Projects
           </a>
           <a
-            href="\assets\TULSI CHOUDHARY Java Developer (2).pdf" // Update to a relative path
+            href="/assets/Tulsi_choudhary_resume.pdf" // Update to a relative path
             download
             className="border text-primary border-white text-white hover:bg-accent/10 p-2 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:scale-105 hover:shadow-lg"
           >
