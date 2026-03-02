@@ -14,9 +14,9 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { icon: FaGithub, href: 'https://github.com/nikhiltelase' },
-  { icon: FaLinkedin, href: 'https://linkedin.com/in/nikhiltelase' },
-  { icon: FaInstagram, href: 'https://instagram.com/nikhiltelase17' },
+  { icon: FaGithub, href: 'https://github.com/Tulsi77choudhary' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/tulsi-choudhary-994058263/' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/__choudhary_11_02/' },
 ];
 
 function Navbar() {
