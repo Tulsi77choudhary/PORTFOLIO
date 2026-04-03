@@ -9,41 +9,15 @@ const Hero = () => {
       id="home"
     >
       <ParticlesBackground />
-      
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* RIGHT SIDE (IMAGE): Mobile pe UPAR dikhegi (order-first) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex justify-center items-center relative order-first md:order-last"
-        >
-          {/* Background Glow Effect */}
-          <div className="absolute w-56 h-56 sm:w-80 sm:h-80 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-          
-          <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10"
-          >
-            {/* Image Container - Perfect Round Shape */}
-            <div className="w-56 h-56 sm:w-85 sm:h-90 rounded-full border-4 border-accent overflow-hidden shadow-[0_0_30px_rgba(var(--accent-rgb),0.3)]">
-              <img
-                src="/assets/tulsi.jpeg" // <--- Yahan apni photo ka path dalein
-                alt="Tulsi Choudhary"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-        </motion.div>
 
-        {/* LEFT SIDE (TEXT): Mobile pe NICHE dikhega */}
+      <div className="max-w-7xl mx-auto px-6 w-full flex justify-center items-center">
+
+        {/* TEXT SECTION: Ab yeh center mein dikhega kyunki image hata di gayi hai */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col gap-6 text-center md:text-left items-center md:items-start"
+          className="flex flex-col gap-6 text-center items-center"
         >
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl sm:text-6xl font-bold text-white leading-tight">
@@ -64,14 +38,14 @@ const Hero = () => {
                 />
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-lg leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed">
               Java & SpringBoot, React Developer, passionate about building innovative
               solutions in Data Structures & Algorithms, and Web Development.
             </p>
           </div>
 
           {/* Buttons: Capsule Style (Rounded-Full) */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#projects"
               className="border-2 border-white text-white font-medium hover:bg-white hover:text-black px-8 py-3 rounded-full transition-all transform hover:scale-105"
