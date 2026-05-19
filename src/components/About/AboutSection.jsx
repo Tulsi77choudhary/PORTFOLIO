@@ -7,12 +7,12 @@ function AboutSection() {
     {
       icon: FaCode,
       title: "Web Development",
-      description: "Building responsive and dynamic web applications using modern technologies"
+      description: "Building responsive and dynamic web applications using modern technologies like HTML5, CSS3, JavaScript, React.js, Tailwind"
     },
     {
       icon: FaServer,
       title: "Backend Development",
-      description: "Developing robust and scalable server-side applications"
+      description: "Developing robust and scalable server-side applications using Java, SpringBoot, JPA, Hibernate, microservices and dataBases like MySQL, MongoDB"
     }
   ];
 

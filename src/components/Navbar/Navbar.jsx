@@ -15,8 +15,8 @@ const navItems = [
 
 const socialLinks = [
   { icon: FaGithub, href: 'https://github.com/Tulsi77choudhary' },
-  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/tulsi-choudhary-994058263/' },
-  { icon: FaInstagram, href: 'https://www.instagram.com/__choudhary_11_02/' },
+  { icon: FaLinkedin, href: 'https://github.com/Tulsi77choudhary' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/___tulsiiii___07/' },
 ];
 
 function Navbar() {
@@ -50,9 +50,9 @@ function Navbar() {
           <Link to="home" smooth={true} className="cursor-pointer">
             <motion.div 
               whileHover={{ scale: 1.05 }} 
-              className="text-2xl font-extrabold tracking-tighter text-blue-500"
+              className="text-2xl font-extrabold tracking-tighter text-white"
             >
-              TC<span className="text-white">.</span>
+              Port<span className="text-white"> Folio</span>
             </motion.div>
           </Link>
 

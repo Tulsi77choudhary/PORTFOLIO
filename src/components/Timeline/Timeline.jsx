@@ -26,24 +26,24 @@ const timelineElements = [
   {
     title: "Java & SpringBoot Development Journey",
     location: "Udemy & Self-Learning",
-    description: "Started learning Java and building projects. Developed strong foundation in programming concepts and problem-solving.",
+    description: "Started learning Java and building projects. Developed strong foundation in programming concepts, DSA and problem-solving.",
     date: "2023",
     icon: <FaLaptopCode />,
   },
   {
     title: "Web Development",
-    location: "Self-Learning & Projects",
-    description: "Explored web development technologies and built full-stack applications using React, Node.js, and MongoDB.",
+    location: "Chai our Code ",
+    description: "Explored web development technologies and built full-stack applications using React.js.",
     date: "2023",
     icon: <FaServer />,
   },
-  // {
-  //   title: "InternShip & Training at Integration IT Services Pvt. Ltd.",
-  //   location: "Bhopal, Madhya Pradesh",
-  //   description: "Completed 3 months of training and internship, gaining hands-on experience in Java, SpringBoot, and real-world software development practices.",
-  //   date: "Oct 2022 to  Dec 2022",
-  //   icon: <FaLaptopCode />,
-  // },
+  {
+    title: "Java Full Stack Intern",
+    location: "Punganur",
+    description: "Connected with ISAR IT PVT LTD",
+    date: "May 2026 to  present",
+    icon: <FaLaptopCode />,
+  },
 ];
 
 const Timeline = () => {

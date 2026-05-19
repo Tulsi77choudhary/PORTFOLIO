@@ -19,12 +19,12 @@ const courses = [
     skills: ["Java", "Spring Boot", "REST API", "JPA/Hibernate", "MySQL","Junit"]
   },
   {
-    title: "Frontend Development with React",
+    title: "Frontend Development with React.js",
     platform: "Chai our Code",
     instructor: "Hitesh Choudhary",
     description: "Intensive coding challenge covering various programming concepts and project development across different technologies.",
     completed: true,
-    skills: ["JavaScript", "React", "Web Development", "Problem Solving"]
+    skills: ["JavaScript", "React.js", "Web Development", "Problem Solving"]
   }
 ];
 

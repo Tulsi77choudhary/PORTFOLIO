@@ -13,6 +13,7 @@ import {
   SiMongodb,
   SiTailwindcss,
   SiJavascript,
+  SiGithub
 } from "react-icons/si";
 
 const skills = [
@@ -27,6 +28,7 @@ const skills = [
   { name: "MySQL", icon: FaDatabase, color: "#4479A1" },
   { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
   { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
+  { name: "GitHub", icon: SiGithub, color: "#F7DF1E" }
 ];
 
 function Skills() {
@@ -45,15 +47,15 @@ function Skills() {
             transition={{ duration: 0.3, delay: index * 0.1 }}
             whileHover={{
               scale: 1.1,
-              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)", // Added box shadow on hover
-              backgroundColor: "#1e293b", // Dark background on hover
+              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)", 
+              backgroundColor: "#1e293b", 
             }}
             className="flex flex-col items-center p-4 transition-all hover:scale-100 rounded-lg"
           >
             <skill.icon
               className="text-5xl mb-3"
               style={{ color: skill.color }}
-              alt={`${skill.name} icon`} // Adding alt text for accessibility
+              alt={`${skill.name} icon`} 
             />
             <span className="text-gray-300 font-medium">{skill.name}</span>
           </motion.div>

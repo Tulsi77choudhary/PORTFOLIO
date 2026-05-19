@@ -7,6 +7,7 @@ const projects = [
     description: "A full-stack e-commerce platform built with React, SpringBoot and MySQL featuring user authentication, product management, cart functionality, and secure payment integration.",
     tags: ["React", "SpringBoot", "MySQL"],
     github: "https://github.com/Tulsi77choudhary/e-commerce-react-frontend-",
+    demo: "https://tulsi-ecommerce.vercel.app/",
     videoEmbed: "https://www.youtube.com/embed/QJePtmWBgIk"
   },
   {
